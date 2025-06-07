@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.recipe_management.backend.dto.RecipeDTO;
 import com.recipe_management.backend.dto.SaveRecipeDTO;
-import com.recipe_management.backend.model.Recipe;
 import com.recipe_management.backend.service.IRecipeService;
 import lombok.AllArgsConstructor;
 
@@ -19,7 +20,7 @@ public class RecipeController {
   private final IRecipeService recipesService;
 
   @GetMapping("")
-  public List<Recipe> getRecipeList() {
+  public List<RecipeDTO> getRecipeList() {
     return recipesService.getRecipeList();
   }
 

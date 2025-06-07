@@ -2,6 +2,7 @@ package com.recipe_management.backend.service;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
+import com.recipe_management.backend.dto.RecipeDTO;
 import com.recipe_management.backend.dto.SaveRecipeDTO;
 import com.recipe_management.backend.model.Recipe;
 import com.recipe_management.backend.repository.RecipeRepository;
@@ -15,8 +16,8 @@ public class RecipeService implements IRecipeService {
   private final RecipeRepository recipeRepository;
 
   @Override
-  public List<Recipe> getRecipeList() {
-    List<Recipe> recipeList = recipeRepository.findByActiveFlagTrue();
+  public List<RecipeDTO> getRecipeList() {
+    List<RecipeDTO> recipeList = recipeRepository.findByActiveFlagTrue();
     return recipeList;
   }
 
