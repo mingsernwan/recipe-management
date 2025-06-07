@@ -7,4 +7,5 @@ import com.recipe_management.backend.model.Recipe;
 public interface IRecipeService {
   List<Recipe> getRecipeList();
   void saveRecipe(SaveRecipeDTO saveRecipeDTO);
+  void deleteRecipe(Long recipeId);
 }

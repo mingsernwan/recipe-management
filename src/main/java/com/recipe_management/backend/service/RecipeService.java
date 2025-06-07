@@ -16,7 +16,7 @@ public class RecipeService implements IRecipeService {
 
   @Override
   public List<Recipe> getRecipeList() {
-    List<Recipe> recipeList = recipeRepository.findAll();
+    List<Recipe> recipeList = recipeRepository.findByActiveFlagTrue();
     return recipeList;
   }
 
@@ -29,6 +29,14 @@ public class RecipeService implements IRecipeService {
     recipe.setRecipeCookTime(saveRecipeDTO.recipeCookTime());
     recipe.setRecipeDifficulty(saveRecipeDTO.recipeDifficulty());
     recipe.setActiveFlag(true );
+    recipeRepository.save(recipe);
+  }
+
+  @Override
+  @Transactional
+  public void deleteRecipe(Long recipeId) {
+    Recipe recipe = recipeRepository.findById(recipeId).get();
+    recipe.setActiveFlag(false);
     recipeRepository.save(recipe);
   }
 }
