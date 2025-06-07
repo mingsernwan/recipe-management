@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "rm_recipes")
 
 
-public class Recipes {
+public class Recipe {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long recipeId;
