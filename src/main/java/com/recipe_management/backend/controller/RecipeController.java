@@ -6,9 +6,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.recipe_management.backend.dto.RecipeDTO;
+import com.recipe_management.backend.dto.RecipeListDTO;
+import com.recipe_management.backend.dto.RecipeRequestDTO;
 import com.recipe_management.backend.dto.SaveRecipeDTO;
 import com.recipe_management.backend.service.IRecipeService;
 import lombok.AllArgsConstructor;
@@ -20,8 +21,16 @@ public class RecipeController {
   private final IRecipeService recipesService;
 
   @GetMapping("")
-  public List<RecipeDTO> getRecipeList() {
-    return recipesService.getRecipeList();
+  public List<RecipeListDTO> getRecipeList(
+    @RequestParam(required = false) String recipeName,
+    @RequestParam(required = false) String recipeDescription,
+    @RequestParam(required = false) String recipeDifficulty) {
+      RecipeRequestDTO requestDTO =
+        new RecipeRequestDTO(
+            recipeName,
+            recipeDescription,
+            recipeDifficulty);
+    return recipesService.getRecipeList(requestDTO);
   }
 
   @PostMapping("/save")
