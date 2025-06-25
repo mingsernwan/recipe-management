@@ -1,6 +1,6 @@
 package com.recipe_management.backend.dto;
 
-public record RecipeDTO (
+public record RecipeListDTO (
   String recipeName,
   String recipeDescription,
   String recipeCookTime,
