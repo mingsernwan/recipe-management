@@ -27,10 +27,10 @@ public class RecipeController {
     @RequestParam(required = false) String recipeDifficulty) {
       RecipeRequestDTO requestDTO =
         new RecipeRequestDTO(
-            recipeName,
-            recipeDescription,
-            recipeDifficulty);
-    return recipesService.getRecipeList(requestDTO);
+          recipeName,
+          recipeDescription,
+          recipeDifficulty);
+      return recipesService.getRecipeList(requestDTO);
   }
 
   @PostMapping("/save")

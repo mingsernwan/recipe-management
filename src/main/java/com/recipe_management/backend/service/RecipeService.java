@@ -20,9 +20,7 @@ public class RecipeService implements IRecipeService {
 
   @Override
   public List<RecipeListDTO> getRecipeList(RecipeRequestDTO recipeRequestDTO) {
-    List<RecipeListDTO> response =
-    recipeRepositoryJooq.getRecipeList(recipeRequestDTO);
-    return response;
+     return recipeRepositoryJooq.getRecipeList(recipeRequestDTO);
   }
 
   @Override
@@ -40,7 +38,7 @@ public class RecipeService implements IRecipeService {
   @Override
   @Transactional
   public void deleteRecipe(Long recipeId) {
-    Recipe recipe = recipeRepository.findById(recipeId).get();
+    Recipe recipe = recipeRepository.getReferenceById(recipeId);
     recipe.setActiveFlag(false);
     recipeRepository.save(recipe);
   }
