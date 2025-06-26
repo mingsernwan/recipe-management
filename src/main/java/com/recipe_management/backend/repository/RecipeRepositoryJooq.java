@@ -6,9 +6,7 @@ import org.jooq.Condition;
 import com.recipe_management.backend.dto.RecipeListDTO;
 import com.recipe_management.backend.dto.RecipeRequestDTO;
 import com.util.JooqUtil;
-
 import lombok.AllArgsConstructor;
-
 import org.jooq.DSLContext;
 import org.jooq.Field;
 import org.jooq.Record4;
